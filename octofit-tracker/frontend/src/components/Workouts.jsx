@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getApiBaseUrl, normalizeApiResponse } from '../lib/api';
 
-const endpoint = `${getApiBaseUrl()}/api/workouts/`;
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const endpoint = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev/api/workouts/`
+  : `${getApiBaseUrl()}/api/workouts/`;
 
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
