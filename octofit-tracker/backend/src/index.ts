@@ -14,7 +14,7 @@ const MONGODB_URI = getMongoUri();
 
 // Codespaces-aware API URL
 const codespaceName = process.env.CODESPACE_NAME;
-const CODESPACE_URL = codespaceName ? `https://${codespaceName}-${PORT}.githubpreview.dev` : null;
+const CODESPACE_URL = codespaceName ? `https://${codespaceName}-${PORT}.app.github.dev` : null;
 
 // Middleware
 app.use(express.json());
