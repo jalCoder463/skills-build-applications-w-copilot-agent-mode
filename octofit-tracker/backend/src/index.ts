@@ -1,16 +1,16 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectDatabase, getMongoUri } from './config/database';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/octofit-tracker';
+const MONGODB_URI = getMongoUri();
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
-mongoose.connect(MONGODB_URI)
+connectDatabase()
   .then(() => {
     console.log('Connected to MongoDB');
   })
